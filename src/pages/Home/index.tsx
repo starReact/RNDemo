@@ -1,8 +1,12 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
+import Carrousel from './Carrousel'
 
 export default function index() {
   return (
-    <Text>首页</Text>
+    <View>
+      <Text>首页</Text>
+      <Carrousel />
+    </View>
   )
 }
