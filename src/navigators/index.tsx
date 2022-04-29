@@ -9,7 +9,7 @@
  */
 
  import React from 'react';
- import { Button, Platform, SafeAreaView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+ import { Button, Platform, SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
  import { NavigationContainer, RouteProp } from '@react-navigation/native';
  import { CardStyleInterpolators, createStackNavigator, HeaderStyleInterpolators, StackNavigationProp } from '@react-navigation/stack';
  import ButtomTabs from './ButtomTabs';
@@ -76,6 +76,7 @@
         headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         gestureEnabled: true,  // 开启手势系统，安卓手机端，右滑切换
+        headerStatusBarHeight: StatusBar.currentHeight,
         headerStyle: {
           ...Platform.select({
             android: {

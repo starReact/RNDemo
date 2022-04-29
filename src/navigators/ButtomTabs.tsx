@@ -4,16 +4,17 @@ import { createBottomTabNavigator, BottomTabBarProps } from '@react-navigation/b
 import { NavigationContainer, RouteProp, TabNavigationState, useNavigationState } from '@react-navigation/native'
 import { RootStackNavigation, RootStackParamList } from '.';
 import IconFont from '../assets/iconfont';
+import HomeTabs from './HomeTabs';
 
 type BottomTabParamList = {
-    Home: undefined;
+    HomeTabs: undefined;
     Listen: undefined;
     Found: undefined;
     Account: undefined;
 }
 
 const bottomTabObj = {
-    "Home": "首页",
+    "HomeTabs": "首页",
     "Listen": "我听",
     "Found": "发现",
     "Account": "我的"
@@ -21,20 +22,6 @@ const bottomTabObj = {
 
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
-interface IHomeScreenProps {
-    navigation: RootStackNavigation
-}
-
-function Home ({ navigation }: IHomeScreenProps) {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Home Screen</Text>
-            <Button title='Go to Detail' onPress={() => navigation.navigate("Detail", {
-            name: '123'
-            })} />
-        </View>
-    );
-}
 function Listen () {
     return <Text>Listen</Text>
 }
@@ -70,23 +57,23 @@ export default function ButtomTabs({navigation, route}: IProps) {
             const routeTag = routeNames[index];
             switch (routeTag) {
                 case 'Home':
-                    return bottomTabObj.Home;
+                    return bottomTabObj.HomeTabs;
                 case "Found": 
                     return bottomTabObj.Found;
                 case "Listen":
                     return bottomTabObj.Listen;
-                case "Account": 
+                case "Account":
                     return bottomTabObj.Account;
                 default:
-                    return bottomTabObj.Home
+                    return bottomTabObj.HomeTabs
             }
         }
     } 
 
   return (
     <Tab.Navigator screenOptions={{ tabBarActiveTintColor: "#f86442", header: () => null }}>
-        <Tab.Screen name='Home' component={Home}
-            options={{ tabBarLabel: bottomTabObj.Home, tabBarIcon: ({color, size}) => <IconFont name='icon-shouye' size={size} color={color} /> }} />
+        <Tab.Screen name='HomeTabs' component={HomeTabs}
+            options={{ tabBarLabel: bottomTabObj.HomeTabs, tabBarIcon: ({color, size}) => <IconFont name='icon-shouye' size={size} color={color} /> }} />
         <Tab.Screen name='Listen' component={Listen} 
             options={{ tabBarLabel: bottomTabObj.Listen, tabBarIcon: ({color, size}) => <IconFont name='icon-listen' size={size} color={color} />}} />
         <Tab.Screen name='Found' component={Found}
