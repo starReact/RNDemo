@@ -48,7 +48,7 @@
    return (
      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
        <Text>Detail Screen</Text>
-       <Text>{route.params.name}</Text>
+       {/* <Text>{route.params.name}</Text> */}
        <Button
          title="Detail again"
          onPress={() => navigation.navigate("Detail", {
